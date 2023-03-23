@@ -43,22 +43,45 @@ def from_1001_to_10000(num):
     array = ['0', 'одна тысяча ', 'две тысячи ']
     text = ''
     if num < 3000:
-        d_1000 = int(num / 1000)
-        text += array[d_1000]
+        d_1k = int(num / 1000)
+        text += array[d_1k]
         num = int(num % 1000)
         text += main_constructor(num)
     elif num < 5000:
-        d_1000 = int(num / 1000)
-        text += from_1_to_10(d_1000) + ' тысячи '
+        d_1k = int(num / 1000)
+        text += from_1_to_10(d_1k) + ' тысячи '
         num = int(num % 1000)
         text += main_constructor(num)
     else:
-        d_1000 = int(num / 1000)
-        text += from_1_to_10(d_1000) + ' тысяч '
+        d_1k = int(num / 1000)
+        text += from_1_to_10(d_1k) + ' тысяч '
         num = int(num % 1000)
         text += main_constructor(num)
     return text
-    
+
+def from_10001_to_20000(num):
+    d_10k = int(num / 1000)
+    text = ''
+    text += from_10_to_20(d_10k) + ' тысяч '
+    num = int(num % 1000)
+    text += main_constructor(num)
+    return text
+
+def from_20001_to_100000 (num):
+    d_10k = int(num / 1000)
+    text = ''
+    text += from_21_to_100(d_10k) + ' тысяч '
+    num = int(num % 1000)
+    text += main_constructor(num)
+    return text
+
+def from_100001_to_1000000(num):
+    d_10k = int(num / 1000)
+    text = ''
+    text += from_101_to_1000 (d_10k) + ' тысяч '
+    num = int(num % 1000)
+    text += main_constructor(num)
+    return text
 
 def main_constructor(num):
     txt =''
@@ -72,9 +95,12 @@ def main_constructor(num):
         txt = from_101_to_1000(num)
     elif num < 10000:
         txt = from_1001_to_10000(num)
-    # elif num < 10000:
-    #     txt = from_1001_to_10000(num)
-        
+    elif num < 20000:
+        txt = from_10001_to_20000(num)
+    elif num < 100000:
+        txt = from_20001_to_100000(num)
+    elif num < 1000000:
+        txt = from_100001_to_1000000(num)
               
     return txt
 
@@ -84,4 +110,3 @@ def main_constructor(num):
 number = int(input("Введите число: "))
 words = main_constructor(number)
 print(words)
-
