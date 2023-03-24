@@ -8,7 +8,7 @@
 3 6 9 12 15 18
 6 12 """
 
-import numpy as np
+import numpy
 def input_array (num):
     array = []
     temp = 0
@@ -24,5 +24,5 @@ n = int(input("Введите кол-во элементов 1 множеств�
 m = int(input("Введите кол-во элементов 2 множества: "))
 array_n = input_array(n)
 array_m = input_array(m)
-print(np.intersect1d(array_m, array_n))
+print(numpy.intersect1d(array_m, array_n))
 #===========================================================
